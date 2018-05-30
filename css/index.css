@@ -1,0 +1,159 @@
+/* >>>GLOBAL<<< */
+
+body {
+    background: linear-gradient(#ffccaa, white, white, white, white, white);
+    background-color: white;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 10pt;
+    color: #b00034;
+    background-repeat: no-repeat;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+/* >>>BOARDS<<< */
+#boards {
+    display: block;
+    clear: both;
+    margin: auto;
+    border: #880000 solid 1px;
+    width: 810px;
+    background-color: white;
+}
+
+.my-header {
+    color: #880000;
+    font-family: Tahoma;
+    display: block;
+    height: 30px;
+    background-color: #ffccaa;
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+#boards ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+#boards li {
+    list-style-type: none;
+    padding: 0px;
+}
+
+#boards .board-column {
+    min-width: 250px;
+    float: left;
+    padding: 10px;
+    margin: auto;
+}
+
+
+/* >>>RECENT THREADS<<< */
+#recent-threads {
+    background-color: white;
+    display: block;
+    margin: auto;
+    border: #880000 solid 1px;
+    width: 810px;
+}
+
+
+.recent-threads-entry {
+    width: 210px;
+    float: left;
+    margin: 30px;
+}
+
+#recent-threads {
+    text-align: center;
+}
+
+#recent-threads p {
+    text-align: left;
+}
+
+#recent-threads img {
+    border: #880000 solid 1px;
+    width: 198px;
+}
+
+/*>>>STATS<<<*/
+#stats {
+    display: block;
+    clear: both;
+    margin: auto;
+    border: #880000 solid 1px;
+    width: 810px;
+    background-color: white;
+}
+
+#stats .stat{
+    display: inline-block;
+    width: 268px;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* >>>OPTION BUTTONS<<< */
+
+hr {
+    border-color: #880000;
+    margin-left: auto;
+    margin-right: auto;
+    width: 810px;
+    margin-bottom: 0px;
+}
+
+#option-buttons button:hover {
+    cursor: pointer;
+}
+
+#option-buttons button{
+    margin-top: 0px;
+    color: #880000;
+    background-color: white;
+    border: #880000 solid 1px;
+    font-size: 12px;
+    float: left;
+}
+
+#option-buttons {
+	margin: auto;
+    text-align: center;
+}
+
+#option-buttons a {
+    display: block;
+	text-decoration: none;
+	color: #880000;
+}
+
+/* >>>LINKS<<< */
+#links{
+    text-align: center;
+    margin: auto;
+}
+
+/* >>>FOOTER<<< */
+footer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* >>>MISC<<< */
+.box {
+    display: block;
+    clear: both;
+    margin: auto;
+    border: #880000 solid 1px;
+    width: 810px;
+    background-color: white;
+}

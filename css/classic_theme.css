@@ -1,0 +1,241 @@
+/* >>>Global<<< */
+
+body {
+    background: linear-gradient(#b7c5d9, #eef2ff, #eef2ff, #eef2ff, #eef2ff, #eef2ff, #eef2ff);
+    min-height: 100vh;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 10pt;
+}
+
+
+/* >>>nav-bar and other misc at the top of the website<<< */
+nav {
+    font-size: 12px;
+}
+
+nav #boards{
+    float: left;
+}
+
+nav #misc {
+    float: right;
+}
+
+#misc a {
+    text-decoration: none;
+    color: #34345c;
+}
+
+#misc a:hover {
+    color: #dd0000;
+}
+
+/*>>>CREATE NEW THREAD<<<*/
+h2 #newThread {
+    text-decoration: none;
+    color: #34345c;
+}
+
+h2 #newThread:hover {
+    color: #dd0000;
+    cursor: pointer;
+}
+
+#newThread-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#newThread-name {
+    display: inline-block;
+    background-color: #9988ee;
+    border: black solid 1px;
+    width: 95px;
+    font-weight: bold;
+    padding: 1px;
+    text-align: left;
+    margin-bottom: 2px;
+}
+
+#newThread-subject {
+    display: inline-block;
+    background-color: #9988ee;
+    border: black solid 1px;
+    width: 95px;
+    font-weight: bold;
+    padding: 1px;
+    text-align: left;
+    margin-bottom: 2px;
+}
+
+#newThread-comment {
+    display: inline-block;
+    background-color: #9988ee;
+    border: black solid 1px;
+    width: 95px;
+    height: 50px;
+    font-weight: bold;
+    padding: 1px;
+    text-align: left;
+    margin-bottom: 2px;
+}
+
+#newThread-verification {
+    display: inline-block;
+    background-color: #9988ee;
+    border: black solid 1px;
+    width: 95px;
+    font-weight: bold;
+    padding: 1px;
+    text-align: left;
+    margin-bottom: 2px;
+}
+
+#newThread-file {
+    display: inline-block;
+    background-color: #9988ee;
+    border: black solid 1px;
+    width: 95px;
+    font-weight: bold;
+    padding: 1px;
+    text-align: left;
+    margin-bottom: 2px;
+}
+
+/* >>>BANNER<<< */
+#banner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: black solid 1px;
+}
+
+/* >>>HEADERS<<< */
+h1 {
+    color: #880000;
+    font-family: Tahoma;
+    text-align: center;
+}
+
+h2 {
+    font-family: Tahoma;
+    text-align: center;
+}
+
+/* >>>HR's<<< */
+#header-seperator {
+    display: block;
+    background-color: #b7c5d9;
+    width: 90%;
+}
+
+/* >>>NEWS<<< */
+#news {
+    padding: 10px;
+    width: 300px;
+    border-bottom: #8c97a5 solid 1px;
+    border-top: #8c97a5 solid 1px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 10pt;
+}
+
+#news-menu {
+    text-align: right;
+}
+
+.news-menu-option {
+    color: #343496;
+}
+
+.news-menu-option:hover {
+    color: #dd0000;
+    cursor: pointer;
+}
+
+/* >>>SEARCH<<< */
+.search-area {
+    color: #343496;
+}
+
+.search-area:hover {
+    color: #dd0000;
+    cursor: pointer;
+}
+
+
+/* >>>THREAD<<< */
+.file-name {
+    color: #34345c;
+    text-decoration: underline;
+}
+
+.file-name:hover {
+    color: #dd0000;
+    cursor: pointer;
+}
+
+.thread-name {
+    color: #0f0c5d;
+    font-weight: bold;
+}
+
+.thread-poster-nickname {
+    color: #117743;
+    font-weight: bold;
+}
+
+.thread-reply {
+    color: #34345c;
+    display: inline-block;
+}
+
+.thread-reply:hover {
+    color: #dd0000;
+    cursor: pointer;
+}
+
+.thread-content {
+    padding-left: 20px;
+}
+
+.thread-content img{
+    max-height: 250px;
+    max-width: 250px;
+    margin-right: 10px;
+}
+
+.thread-content img {
+    float: left;
+}
+
+.thread-show-all {
+    padding-top: 10px;
+    color: #707070;
+}
+
+.post {
+    display: inline-block;
+    padding: 5px;
+    background-color: #d6daf0;
+    margin-bottom: 5px;
+}
+
+.post img {
+    margin-left: 10px;
+    display: inline-block;
+    float: left;
+    max-height: 125px;
+}
+
+.post .thread-text {
+    float: left;
+}
+
+
+/* >>>FOOTER<<< */
+footer {
+    margin-top: 30px;
+    text-align: center;
+}
