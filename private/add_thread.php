@@ -1,10 +1,13 @@
 <?php
+
   ### TODO:
   ###   - Get the board name
   ###   - Get the thread name
   ###   - Get the thread description (That's the op's message/text)
   ###   - Save the image and get the image path after giving it a random name
   ###   - Get the image's original name
+
+  echo "I am working!";
 
   ### IMPORTS
   require_once "db_connect.php";

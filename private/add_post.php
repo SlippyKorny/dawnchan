@@ -14,6 +14,7 @@
         $sql = "INSERT INTO `posts` (`post_id`, `thread_id`, `board_id`, `creation_date`, `poster_name`, `post_content`, `image_path`, `image_original_name`) VALUES (NULL, '$thread_id', '$board_id', CURRENT_TIMESTAMP, '$poster_name', '$post_content', '$image_path', '$image_original_name')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
+        // TODO: Przekierowanie
     }
 
     ### Calls

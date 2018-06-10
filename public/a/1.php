@@ -28,7 +28,7 @@
     ?>
     <h1 id="board-name">/a/ - Anime & Manga</h1>
     <hr id="header-seperator">
-    <div id="newThread-container"><form id="newThread-form" action="../../private/add_post.php" method="post"></form></div>
+    <div id="newThread-container"><form id="newThread-form" action="../../private/add_thread.php" method="post"></form></div>
     <h2>[<span id="newThread" onclick="createNewThread(getBoardId())">Start a New Thread</span>]</h2>
     <div id="news">
         14/05/18 Started work on /a/<br>
