@@ -15,6 +15,9 @@
 
     function display_threads($board_no)
     {
+        //TODO: When you load a post without a picture set some default size of it and don't use an image at all
+        //TODO: After you implement all of the necessary stuff for adding and displaying threads add here the option of loading a picture with the path provided by the sql query
+        //TODO: Display only 5 last posts unless you go into the "reply"
         global $conn;
         if(!$conn)
             die("display_threads() connection failure: " . mysqli_connect_error() . "<br>");
@@ -52,7 +55,10 @@
                     else
                         echo "<span class='thread-poster-nickname'>{$posts_query_row['poster_name']}</span>";
                     echo " {$posts_query_row["creation_date"]} <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span><br>";
-                    echo "File: <a href=\"../../assets/img/Recent%20Threads%20test%20images/326234623.jpg\" target=\"_blank\">{$posts_query_row['image_original_name']}</a> (56 KB, 480x550)<br>";
+                    if ($posts_query_row['image_original_name'] != "")
+                        echo "File: <a href=\"../../assets/img/Recent%20Threads%20test%20images/326234623.jpg\" target=\"_blank\">{$posts_query_row['image_original_name']}</a> (56 KB, 480x550)<br>";
+                    else
+                        echo "File: <a href=\"../../assets/img/Recent%20Threads%20test%20images/326234623.jpg\" target=\"_blank\">{$posts_query_row['image_original_name']}</a> (56 KB, 480x550)<br>";
                     echo "<a href=\"../../assets/img/Recent%20Threads%20test%20images/326234623.jpg\" target=\"_blank\"><img src=\"../../assets/img/Recent%20Threads%20test%20images/326234623.jpg\"></a>";
                     echo "<div class=\"thread-text\">{$posts_query_row['post_content']}</div>";
                     echo "<div style=\"clear: both\"></div></div></div>";
