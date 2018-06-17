@@ -101,15 +101,19 @@
               if(!$is_it_op)
               {
                   echo "<div class='post'>";
-                  if ($posts_query_row ['poster_name'] = "")
+                  if ($posts_query_row ['poster_name'] == "")
                       echo "<span class='thread-poster-nickname'>Anonymous</span>";
                   else
                       echo "<span class='thread-poster-nickname'>{$posts_query_row['poster_name']}</span>";
-                  echo " {$posts_query_row['creation_date']} <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span><br>";
-                  echo "File: <a href='../assets/img/Recent%20Threads%20test%20images/326234623.jpg' target='_blank'>{$posts_query_row['image_original_name']}</a> (56 KB, 480x550)<br>";
-                  echo "<a href='../assets/img/Recent%20Threads%20test%20images/326234623.jpg' target='_blank'><img src='../assets/img/Recent%20Threads%20test%20images/326234623.jpg'></a>";
-                  echo "<div class='thread-text'>{$posts_query_row['post_content']}</div>";
-                  echo "<div style='clear: both'></div></div></div>";
+                  echo " " . date($posts_query_row['creation_date'], false) . " <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span><br>";
+                  if ($posts_query_row['image_path'] != "")
+                  {
+                      echo "File: <a href='../assets/img/posted/{$posts_query_row['image_path']}' target='_blank'>{$posts_query_row['image_original_name']}</a> (56 KB, 480x550)<br>";
+                      echo "<a href='../assets/img/posted/{$posts_query_row['image_path']}' target='_blank'><img src='../assets/img/posted/{$posts_query_row['image_path']}'></a>";
+                  }
+
+                  echo "<div class='thread-text'>" . nl2br($posts_query_row['post_content'], false) . "</div>";
+                  echo "<div style='clear: both'></div></div></div><br>";
               }
 
               else
@@ -120,9 +124,9 @@
 
 
                   echo "<hr><div class='thread'>";
-                  echo "File: <a href='../assets/img/Recent%20Threads%20test%20images/1526300765199.jpg' target='_blank'><span class='file-name'>{$posts_query_row['image_original_name']}</span></a> (1.16MB, 1240x1753)<br>";
+                  echo "File: <a href='../assets/img/posted/{$threads_query_row['image_path']}' target='_blank'><span class='file-name'>{$posts_query_row['image_original_name']}</span></a> (1.16MB, 1240x1753)<br>";
                   echo "<div class='thread-content'>";
-                  echo "<a href='../assets/img/Recent%20Threads%20test%20images/1526300765199.jpg' target='_blank'><img src='../assets/img/Recent%20Threads%20test%20images/1526300765199.jpg'></a>";
+                  echo "<a href='../assets/img/posted/{$threads_query_row['image_path']}' target='_blank'><img src='../assets/img/posted/{$threads_query_row['image_path']}'></a>";
                   echo "<span class='thread-name'>{$threads_query_row['thread_name']} </span>";
                   if($posts_query_row["poster_name"] == "")
                       echo "<span class='thread-poster-nickname'>Anonymous </span>";
@@ -130,7 +134,7 @@
                       echo "<span class='thread-poster-nickname'>{$posts_query_row['poster_name']} </span>";
                   echo $posts_query_row ["creation_date"];
                   echo " <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span><br>";
-                  echo "<div class='thread-op-text'>{$posts_query_row['post_content']}</div>";
+                  echo "<div class='thread-op-text'>" . nl2br($posts_query_row['post_content']) . "</div>";
                   $is_it_op = false;
               }
           }
