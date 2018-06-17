@@ -217,7 +217,7 @@ h2 {
 
 .post {
     display: inline-block;
-    padding: 5px;
+    padding: 10px;
     background-color: #d6daf0;
     margin-bottom: 5px;
 }
@@ -230,6 +230,7 @@ h2 {
 }
 
 .post .thread-text {
+    margin-left: 10px;
     float: left;
 }
 
