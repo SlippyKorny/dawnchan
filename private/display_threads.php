@@ -9,7 +9,6 @@
 
     ### Imports
     require_once "db_connect.php";
-    require_once "EOL_to_br.php";
 
     ### Declerations
     $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -38,7 +37,7 @@
 
                 # Write down all of the OP's data
                 echo "<hr><div class='thread'>";
-                echo "File: <a href='../assets/img/posted/{$threads_query_row['image_path']}' target='_blank'><span class='file-name'>{$threads_query_row['image_original_name']}</span></a> (1.16MB, 1240x1753)<br>";
+                echo "File: <a href='../../assets/img/posted/{$threads_query_row['image_path']}' target='_blank'><span class='file-name'>{$threads_query_row['image_original_name']}</span></a> (1.16MB, 1240x1753)<br>";
                 echo "<div class='thread-content'>";
                 echo "<a href='../../assets/img/posted/{$threads_query_row['image_path']}' target='_blank'><img src='../../assets/img/posted/{$threads_query_row['image_path']}'></a>";
                 echo "<span class='thread-name'>{$threads_query_row['thread_name']} </span>";
@@ -75,6 +74,7 @@
                     echo "<div style=\"clear: both\"></div></div></div><br>";
                     $counter++;
                 }
+                echo "<div style='clear: both'></div>";
             }
         }
         else

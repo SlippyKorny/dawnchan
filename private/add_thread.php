@@ -16,6 +16,28 @@
   ### Declerations
   $conn = mysqli_connect($servername, $username, $password, $dbname);
 
+  function get_extension($original_file_name)
+  {
+    for ($i = 0; $i < strlen($original_file_name); $i++)
+    {
+        if ($original_file_name{$i} == '.')
+            return substr($original_file_name, $i, strlen($original_file_name)-1);
+    }
+  }
+
+  function get_image_no()
+  {
+      $fileReader = fopen("../assets/data", "r") or die ("Unable to open the file");
+      $lastimageNo = fgets($fileReader);
+      $lastimageNo = intval($lastimageNo);
+      $lastimageNo++;
+      fclose($fileReader);
+
+      $fileWriter = fopen("../assets/data", "w+") or die ("Unable to open the file");
+      fwrite($fileWriter, $lastimageNo);
+      return $lastimageNo;
+  }
+
   function get_last_thread_id()
   {
       global $conn;
@@ -39,12 +61,12 @@
     global $conn;
     $board_id = get_board_id($board_name, $conn);
     echo "<b>Board id:</b> " . $board_id . "<br>";
-    $image_path = "new_image_path_desu.png";  # TODO: Delete this - this is for testing purposes only
+    $image_path = get_image_no() . get_extension($image_original_name);
 
     if (!$conn)
       die("create_thread() connection failure: " . mysqli_connect_error());
 
-    $sql = "INSERT INTO `threads` (`thread_id`, `board_id`, `creation_date`, `thread_name`, `thread_description`, `image_path`, `image_original_name`) VALUES (NULL, '$board_id', CURRENT_TIMESTAMP, '$thread_name', '$thread_description', '$image_path', '$image_original_name')";
+    $sql = "INSERT INTO `threads` (`thread_id`, `board_id`, `creation_date`, `thread_name`, `thread_description`, `image_path`, `image_original_name`) VALUES (NULL, '{$board_id}', CURRENT_TIMESTAMP, '{$thread_name}', '{$thread_description}', '{$image_path}', '{$image_original_name}')";
 
     # Add to `threads`
     if(mysqli_query($conn, $sql))
@@ -56,7 +78,7 @@
     # TODO: I've added here a thread_id reference but there is yet no function that gets the thread_id that has been created in the previous SQL query.
     #       take care of that when you'll have some free time
     $thread_id = get_last_thread_id();
-    $sql = "INSERT INTO `posts` (`post_id`, `thread_id`, `board_id`, `creation_date`, `poster_name`, `post_content`, `image_path`, `image_original_name`) VALUES (NULL, '$thread_id', '$board_id', CURRENT_TIMESTAMP, '$poster_name', '$thread_description', '$image_path', '$image_original_name')";
+    $sql = "INSERT INTO `posts` (`post_id`, `thread_id`, `board_id`, `creation_date`, `poster_name`, `post_content`, `image_path`, `image_original_name`) VALUES (NULL, '{$thread_id}', '{$board_id}', CURRENT_TIMESTAMP, '{$poster_name}', '{$thread_description}', '{$image_path}', '{$image_original_name}')";
 
     # Add OP to `posts`
     if(mysqli_query($conn, $sql))
