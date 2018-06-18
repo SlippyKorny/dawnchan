@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="../assets/img/Favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/classic_theme.css">
     <script src="../js/createNewReply.js"></script>
+    <board_id style="display: none"><?php echo $_POST["board_id"]; ?></board_id>
 </head>
 <body>
 <nav>

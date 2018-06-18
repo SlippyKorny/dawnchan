@@ -105,7 +105,7 @@
                       echo "<span class='thread-poster-nickname'>Anonymous</span>";
                   else
                       echo "<span class='thread-poster-nickname'>{$posts_query_row['poster_name']}</span>";
-                  echo " " . date($posts_query_row['creation_date'], false) . " <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span><br>";
+                  echo " " . date('m/d/Y(D)G:i:s', strtotime($posts_query_row['creation_date'])) . " <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span><br>";
                   if ($posts_query_row['image_path'] != "")
                   {
                       echo "File: <a href='../assets/img/posted/{$posts_query_row['image_path']}' target='_blank'>{$posts_query_row['image_original_name']}</a> (56 KB, 480x550)<br>";
@@ -132,12 +132,13 @@
                       echo "<span class='thread-poster-nickname'>Anonymous </span>";
                   else
                       echo "<span class='thread-poster-nickname'>{$posts_query_row['poster_name']} </span>";
-                  echo $posts_query_row ["creation_date"];
+                  echo date('m/d/Y(D)G:i:s', strtotime($posts_query_row['creation_date']));
                   echo " <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span><br>";
                   echo "<div class='thread-op-text'>" . nl2br($posts_query_row['post_content']) . "</div>";
                   $is_it_op = false;
               }
           }
+          echo "<div style='clear: both'></div>";
       }
 
 
