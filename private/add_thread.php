@@ -7,36 +7,13 @@
   ###   - Save the image and get the image path after giving it a random name
   ###   - Get the image's original name
 
-  echo "I am working!";
-
   ### IMPORTS
   require_once "db_connect.php";
   require_once "get_board_id.php";
+  require_once "added_images_manipulation.php";
 
   ### Declerations
   $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-  function get_extension($original_file_name)
-  {
-    for ($i = 0; $i < strlen($original_file_name); $i++)
-    {
-        if ($original_file_name{$i} == '.')
-            return substr($original_file_name, $i, strlen($original_file_name)-1);
-    }
-  }
-
-  function get_image_no()
-  {
-      $fileReader = fopen("../assets/data", "r") or die ("Unable to open the file");
-      $lastimageNo = fgets($fileReader);
-      $lastimageNo = intval($lastimageNo);
-      $lastimageNo++;
-      fclose($fileReader);
-
-      $fileWriter = fopen("../assets/data", "w+") or die ("Unable to open the file");
-      fwrite($fileWriter, $lastimageNo);
-      return $lastimageNo;
-  }
 
   function get_last_thread_id()
   {
@@ -65,6 +42,9 @@
 
     if (!$conn)
       die("create_thread() connection failure: " . mysqli_connect_error());
+
+    $thread_name = addslashes($thread_name);
+    $thread_description = addslashes($thread_description);
 
     $sql = "INSERT INTO `threads` (`thread_id`, `board_id`, `creation_date`, `thread_name`, `thread_description`, `image_path`, `image_original_name`) VALUES (NULL, '{$board_id}', CURRENT_TIMESTAMP, '{$thread_name}', '{$thread_description}', '{$image_path}', '{$image_original_name}')";
 
