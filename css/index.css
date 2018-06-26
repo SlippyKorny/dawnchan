@@ -75,12 +75,13 @@ img {
 }
 
 #recent-threads p {
-    text-align: left;
+    text-align: center;
 }
 
 #recent-threads img {
     border: #880000 solid 1px;
-    width: 198px;
+    max-width: 190px;
+    max-height: 197px;
 }
 
 /*>>>STATS<<<*/
@@ -112,10 +113,6 @@ hr {
     margin-bottom: 0px;
 }
 
-#option-buttons button:hover {
-    cursor: pointer;
-}
-
 #option-buttons button{
     margin-top: 0px;
     color: #880000;
@@ -124,6 +121,12 @@ hr {
     font-size: 12px;
     float: left;
 }
+
+#option-buttons button:hover {
+cursor: pointer;
+color: #d46672;
+}
+
 
 #option-buttons {
 	margin: auto;

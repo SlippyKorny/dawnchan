@@ -7,12 +7,16 @@
   ###   - Save the image and get the image path after giving it a random name
   ###   - Get the image's original name
 
-  ### IMPORTS
+  ###############
+  ### IMPORTS ###
+  ###############
   require_once "db_connect.php";
   require_once "get_board_id.php";
   require_once "added_images_manipulation.php";
 
-  ### Declerations
+  ####################
+  ### Declarations ###
+  ####################
   $conn = mysqli_connect($servername, $username, $password, $dbname);
 
   function get_last_thread_id()
@@ -33,7 +37,7 @@
         die("<b>get_last_thread_id() failure:</b> no results found. Returning null... This may result in fatal errors...");
   }
 
-  function create_thread($board_name, $thread_name, $poster_name, $thread_description, $image_original_name)
+  function create_thread($board_name, $thread_name, $poster_name, $thread_description, $image_original_name, $file)
   {
     global $conn;
     $board_id = get_board_id($board_name, $conn);
@@ -42,6 +46,8 @@
 
     if (!$conn)
       die("create_thread() connection failure: " . mysqli_connect_error());
+
+    save_file($file, "../assets/img/posted/" . $image_path );
 
     $thread_name = addslashes($thread_name);
     $thread_description = addslashes($thread_description);
@@ -54,9 +60,6 @@
     else
       echo "<br><b>create_thread() mysqli_query() threads table failure:</b> " . mysqli_error($conn) . "<br><b>SQL:</b> " . $sql . "<br><br><br>";
 
-    # SQL querry for adding to the `posts` table and get the thread_id
-    # TODO: I've added here a thread_id reference but there is yet no function that gets the thread_id that has been created in the previous SQL query.
-    #       take care of that when you'll have some free time
     $thread_id = get_last_thread_id();
     $sql = "INSERT INTO `posts` (`post_id`, `thread_id`, `board_id`, `creation_date`, `poster_name`, `post_content`, `image_path`, `image_original_name`) VALUES (NULL, '{$thread_id}', '{$board_id}', CURRENT_TIMESTAMP, '{$poster_name}', '{$thread_description}', '{$image_path}', '{$image_original_name}')";
 
@@ -67,7 +70,10 @@
       echo "<b>create_thread() mysqli_query() posts table failure:</b> " . mysqli_error($conn) . "<br><b>SQL:</b> " . $sql . "<br><br><br>";
   }
 
-  ### CALLS
-  create_thread("Anime & Manga" ,$_POST["subject"], $_POST["name"], $_POST["comment"], $_POST["file"]);
+  #############
+  ### CALLS ###
+  #############
+  # create_thread("Anime & Manga" ,$_POST["subject"], $_POST["name"], $_POST["comment"], $_FILES["file"]["name"], $_FILES["file"]);
+  create_thread($_POST["board_name"] ,$_POST["subject"], $_POST["name"], $_POST["comment"], $_FILES["file"]["name"], $_FILES["file"]);
   mysqli_close($conn);
 ?>

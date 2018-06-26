@@ -21,20 +21,20 @@
         <div class="board-column">
             <u><b>Japanese Culture</b></u>
             <ul>
-                <li><a href="public/a/1.php">Anime & Manga</a></li>
-                <li>Otaku culture</li>
+                <li><a href="public/a.php">Anime & Manga</a></li>
+                <li><a href="public/jp.php">Otaku culture</a></li>
             </ul>
             <u><b>Video Games</b></u>
             <ul>
-                <li>Video Games</li>
-                <li>Pokémon</li>
+                <li><a href="public/v.php">Video Games</a></li>
+                <li><a href="public/vp.php">Pokémon</a></li>
             </ul>
         </div>
         <div class="board-column">
             <u><b>Interests</b></u>
             <ul>
-                <li>Comics & Cartoons</li>
-                <li>Technology</li>
+                <li><a href="public/co.php">Comics & Cartoons</a></li>
+                <li><a href="public/g.php">Technology</a></li>
                 <li>Television & Film</li>
                 <li>Weapons</li>
                 <li>Science & Math</li>
@@ -61,59 +61,34 @@
 
     <div style="margin-top: 300px"></div>
 
-<!--    TODO: Create php script here that will load the most recent threads-->
     <div id="recent-threads">
         <div class="my-header">Recent threads</div>
-        <div class="recent-threads-row">
-            <div class="recent-threads-entry">
-                <b>Video Games</b>
-                <a href=""><img src="assets/img/Recent%20Threads%20test%20images/v.jpg"></a>
-                <p><b>27" and above monitors: </b>
-                    Is it worth it to upgrade from a 24"?</p>
-            </div>
-            <div class="recent-threads-entry">
-                <b>Video Games</b>
-                <a href=""><img src="assets/img/Recent%20Threads%20test%20images/v.jpg"></a>
-                <p><b>27" and above monitors: </b>
-                    Is it worth it to upgrade from a 24"?</p>
-            </div>
-            <div class="recent-threads-entry">
-                <b>Video Games</b>
-                <a href=""><img src="assets/img/Recent%20Threads%20test%20images/v.jpg"></a>
-                <p><b>27" and above monitors: </b>
-                    Is it worth it to upgrade from a 24"?</p>
-            </div>
+             <?php
+                require_once "private/display_threads.php";
+                display_recent_threads();
+                global $conn;
+                mysqli_close($conn);
+             ?>
             <div style="clear: both"></div>
         </div>
-        <div class="recent-threads-row">
-            <div class="recent-threads-entry">
-                <b>Video Games</b>
-                <a href=""><img src="assets/img/Recent%20Threads%20test%20images/v.jpg"></a>
-                <p><b>27" and above monitors: </b>
-                    Is it worth it to upgrade from a 24"?</p>
-            </div>
-            <div class="recent-threads-entry">
-                <b>Video Games</b>
-                <a href=""><img src="assets/img/Recent%20Threads%20test%20images/v.jpg"></a>
-                <p><b>27" and above monitors: </b>
-                    Is it worth it to upgrade from a 24"?</p>
-            </div>
-            <div class="recent-threads-entry">
-                <b>Video Games</b>
-                <a href=""><img src="assets/img/Recent%20Threads%20test%20images/v.jpg"></a>
-                <p><b>27" and above monitors: </b>
-                Is it worth it to upgrade from a 24"?</p>
-            </div>
-            <div style="clear: both"></div>
-        </div>
-    </div>
 
     <div style="margin-top: 5px"></div>
     <div id="stats">
         <div class="my-header">Stats</div>
-        <div class="stat"><b>Total Posts:</b> 0</div>
-        <div class="stat"><b>Current Users:</b> 0</div>
-        <div class="stat"><b>Active Content:</b> 0GB</div>
+        <div class="stat"><b>Total Threads:</b> <?php
+            require_once "private/get_db_data.php";
+            echo get_how_many_threads();
+            ?></div>
+        <div class="stat"><b>Total Posts:</b> <?php
+            require_once "private/get_db_data.php";
+            echo get_how_many_posts();
+            ?></div>
+        <div class="stat"><b>Active Content:</b>
+            <?php
+              // require_once "private/posted_size.php";
+              // echo windows_posted_size();
+            ?>0GB
+        </div>
         <div style="clear: both"></div>
     </div>
 
@@ -134,7 +109,7 @@
         <a href="https://twitter.com/PolishedSlipper">Creator's twitter</a> • <a>About</a> • <a>Feedback</a> • <a>Legal</a> • <a>Contact</a>
     </div>
     <footer>
-        Copyright © 2018 Edenchan community. All rights reserved. Made by Kornel Domeradzki
+        Copyright © 2018 Dawnchan community. All rights reserved. Made by Kornel Domeradzki
     </footer>
 </body>
 </html>

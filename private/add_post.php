@@ -17,12 +17,15 @@
         return $query_row['thread_id'];
     }
 
-    function add_post($thread_id, $board_id, $poster_name, $post_content, $image_original_name)
+    function add_post($thread_id, $board_id, $poster_name, $post_content, $image_original_name, $file)
     {
         global $servername, $username, $password, $dbname;
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         if ($image_original_name != "")
+        {
             $image_path = get_image_no() . get_extension($image_original_name);
+            save_file($file, "../assets/img/posted/" . $image_path );
+        }
         else
             $image_path = "";
 
@@ -52,6 +55,6 @@
     #############
     ### Calls ###
     #############
-    add_post($_POST["thread_id"], $_POST["board_id"], $_POST["poster_name"], $_POST["post_content"], $_POST["image_original_name"]);
+    add_post($_POST["thread_id"], $_POST["board_id"], $_POST["poster_name"], $_POST["post_content"], $_FILES["image_original_name"]["name"], $_FILES["image_original_name"]);
 
 ?>

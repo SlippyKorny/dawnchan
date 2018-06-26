@@ -20,4 +20,26 @@ function get_image_no()
     fwrite($fileWriter, $lastimageNo);
     return $lastimageNo;
 }
+
+function save_file($file, $image_path)
+{
+    $file_tmp_name = $file['tmp_name'];
+    $file_size = $file['size'];
+    $file_error = $file['error'];
+    echo "tmp: " . $file_tmp_name ;
+    echo "size: " . $file_size;
+
+    if($file_error === 0)
+    {
+        if ($file_size < 20971520)
+        {
+            move_uploaded_file($file_tmp_name, $image_path);
+            echo "success!";
+        }
+        else
+            die("Your file is too big! (Max. 20MB)");
+    }
+    else
+        die("There was an error uploading your file!");
+}
 ?>
