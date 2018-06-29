@@ -180,7 +180,7 @@
                 echo "<b>" . get_board_name_by_id($conn, $sql_row["board_id"]) . "</b>"; #TODO: Get Board Name by Id
                 echo "<a href='" . $sql_row["image_path"] . "'><img src='assets/img/posted/" . $sql_row["image_path"] . "'></a>"; #TODO: Change the redirection to the thread
                 if(strlen($sql_row["thread_description"]) > 100)
-                    $description = substr($sql_row["thread_description"], 0, 95) . "(...)";
+                    $description = substr($sql_row["thread_description"], 0, 90) . "(...)";
                 else
                     $description = $sql_row["thread_description"];
                 if ($sql_row["thread_name"] != "")

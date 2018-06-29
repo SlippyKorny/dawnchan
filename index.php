@@ -85,9 +85,9 @@
             ?></div>
         <div class="stat"><b>Active Content:</b>
             <?php
-              // require_once "private/posted_size.php";
-              // echo windows_posted_size();
-            ?>0GB
+               require_once "private/posted_size.php";
+               echo echo_posted_size();
+            ?>MB
         </div>
         <div style="clear: both"></div>
     </div>
@@ -106,7 +106,7 @@
         <div style="clear: both;"></div>
     </div>
     <div id="links">
-        <a href="https://twitter.com/PolishedSlipper">Creator's twitter</a> • <a>About</a> • <a>Feedback</a> • <a>Legal</a> • <a>Contact</a>
+        <a href="https://twitter.com/PolishedSlipper">Creator's twitter</a> • <a href="admin.php">Admin Panel</a> • <a>Feedback</a> • <a>Legal</a> • <a>Contact</a>
     </div>
     <footer>
         Copyright © 2018 Dawnchan community. All rights reserved. Made by Kornel Domeradzki

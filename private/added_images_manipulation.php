@@ -18,6 +18,7 @@ function get_image_no()
 
     $fileWriter = fopen("../assets/data", "w+") or die ("Unable to open the file");
     fwrite($fileWriter, $lastimageNo);
+    fclose($fileWriter);
     return $lastimageNo;
 }
 

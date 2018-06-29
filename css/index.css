@@ -60,7 +60,7 @@ img {
     display: block;
     margin: auto;
     border: #880000 solid 1px;
-    width: 810px;
+    width: 820px;
 }
 
 
@@ -71,10 +71,6 @@ img {
 }
 
 #recent-threads {
-    text-align: center;
-}
-
-#recent-threads p {
     text-align: center;
 }
 

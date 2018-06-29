@@ -68,6 +68,9 @@
       echo "<h1>Success</h1>";
     else
       echo "<b>create_thread() mysqli_query() posts table failure:</b> " . mysqli_error($conn) . "<br><b>SQL:</b> " . $sql . "<br><br><br>";
+
+    exec("python pyScripts/getUploadedFilesSize.py");
+    header("../public/{$board_name}.php");
   }
 
   #############
