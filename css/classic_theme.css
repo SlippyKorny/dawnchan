@@ -15,6 +15,66 @@ nav {
 
 nav #boards{
     float: left;
+	display: inline-block;
+}
+
+#boards h1
+{
+	margin-top: 0px;
+	margin-bottom: 4px;
+	text-align: left;
+	border-bottom-width: 1px;
+	border-bottom-color: #b00020;
+	border-bottom-style: solid;
+}
+
+#jap-culture{
+	float: left;
+	margin-right: 30px;
+}
+
+#video-games{
+	float: left;
+	margin-right: 30px;
+}
+
+#interests{
+	float: left;
+	margin-right: 30px;
+}
+
+#boards ul{
+	list-style-type: none;
+	padding-left: 15px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#boards b
+{
+	margin-bottom: 0px;
+	text-align: left;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 10pt;
+    color: #b00034;
+}
+
+#boards a
+{
+	color: #b00034;
+	text-decoration: none;
+}
+
+#boards a:visited
+{
+	color: #b00034;
+	text-decoration: none;
+}
+
+#boards a:hover
+{
+	color: red;
+	text-decoration: underline;
 }
 
 nav #misc {
