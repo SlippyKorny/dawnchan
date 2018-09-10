@@ -19,6 +19,8 @@ function check_credentials($user_username, $user_password)
     if (mysqli_num_rows($query_result) > 0)
     {
         $row = mysqli_fetch_assoc($query_result);
+        session_start();
+        $_SESSION["username"] = $row["username"];
         if ($row["account_type"] == 0)  // Root - All rights
         {
             mysqli_close($conn);
@@ -40,7 +42,7 @@ function check_credentials($user_username, $user_password)
         else
         {
             mysqli_close($conn);
-            header("Location: administration_panel/root_panel.php");
+            header("Location: ../public/normal_user_panel.php");
             exit;
         }
     }

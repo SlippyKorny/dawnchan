@@ -5,3 +5,12 @@ b {
 p {
     padding: 10px;
 }
+
+hr {
+  margin-left: -42.8%;
+}
+
+#option-buttons {
+  margin-left: 45%;
+  text-align: center;
+}

@@ -51,7 +51,8 @@
 
                 echo " <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span>   <form style='display: inline-block' method='post' action='thread.php'>"
                             . "<input style='display: none' value='{$posts_query_row['board_id']}' name='board_id'><input style='display: none' name='board_description' value='" . get_board_name_by_id($conn, $threads_query_row["board_id"])
-                                . "'><input style='display: none' name='board_name' value='" . get_board_name_short_by_id($conn, $threads_query_row["board_id"]) . "'>[<span class='thread-reply'><input name= 'thread_id' value='{$threads_query_row['thread_id']}' style='display: none'><button>Reply</button></span>]</form><br>";
+                                . "'><input style='display: none' name='board_name' value='" . get_board_name_short_by_id($conn, $threads_query_row["board_id"]) . "'>[<span class='thread-reply'><input name= 'thread_id' value='{$threads_query_row['thread_id']}' style='display: none'><button>Reply</button></span>]</form>";
+                echo "<a href=''><img src='../assets/img/follow_0.png'></a><br>"; // TODO: make the function on click add it to the following
                 echo "<div class='thread-op-text'>" . nl2br($threads_query_row['thread_description'], false) . "</div><br>";
 
                 $counter = 0;
