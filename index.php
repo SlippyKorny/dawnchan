@@ -10,7 +10,7 @@
 <!--    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.cdn.mozilla.net/static/img/favicon114.0e9fabd44f85.png">-->
 <!--    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.cdn.mozilla.net/static/img/favicon72.8ff9d87c82a0.png">-->
 <!--    <link rel="apple-touch-icon-precomposed" href="https://developer.cdn.mozilla.net/static/img/favicon57.a2490b9a2d76.png">-->
-    
+
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -95,16 +95,11 @@
     <hr>
     <div id="option-buttons">
         <a href="index.php"><button>Home</button></a>
-        <button>News</button>
-        <button>Blog</button>
-        <button>FAQ</button>
-        <button>Rules</button>
-        <button>Support Edenchan</button>
-        <button>Advertise</button>
-        <button>Press</button>
+        <a href="log_in.php"><button>Log-in</button></a>
         <a href="public/polski.html"><button>Polski</button></a>
         <div style="clear: both;"></div>
     </div>
+    <br>
     <div id="links">
         <a href="https://twitter.com/PolishedSlipper">Creator's twitter</a> • <a href="admin.php">Admin Panel</a> • <a>Feedback</a> • <a>Legal</a> • <a>Contact</a>
     </div>
