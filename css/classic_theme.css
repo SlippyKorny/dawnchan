@@ -24,7 +24,7 @@ nav #boards{
 	margin-bottom: 4px;
 	text-align: left;
 	border-bottom-width: 1px;
-	border-bottom-color: #b00020;
+	border-bottom-color: #34345c;
 	border-bottom-style: solid;
 }
 
@@ -56,18 +56,18 @@ nav #boards{
 	text-align: left;
     font-family: arial,helvetica,sans-serif;
     font-size: 10pt;
-    color: #b00034;
+    color: #34345c;
 }
 
 #boards a
 {
-	color: #b00034;
+	color: #34345c;
 	text-decoration: none;
 }
 
 #boards a:visited
 {
-	color: #b00034;
+	color: #34345c;
 	text-decoration: none;
 }
 

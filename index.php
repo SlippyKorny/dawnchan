@@ -20,35 +20,20 @@
                 <li><a href="public/a.php">Anime & Manga</a></li>
                 <li><a href="public/jp.php">Otaku culture</a></li>
             </ul>
-            <u><b>Video Games</b></u>
-            <ul>
-                <li><a href="public/v.php">Video Games</a></li>
-                <li><a href="public/vp.php">Pokémon</a></li>
-            </ul>
         </div>
         <div class="board-column">
-            <u><b>Interests</b></u>
-            <ul>
-                <li><a href="public/co.php">Comics & Cartoons</a></li>
-                <li><a href="public/g.php">Technology</a></li>
-                <li>Television & Film</li>
-                <li>Weapons</li>
-                <li>Science & Math</li>
-                <li>History & Humanities</li>
-            </ul>
+          <u><b>Video Games</b></u>
+          <ul>
+              <li><a href="public/v.php">Video Games</a></li>
+              <li><a href="public/vp.php">Pokémon</a></li>
+          </ul>
         </div>
         <div class="board-column">
-            <u><b>Creative</b></u>
-            <ul>
-                <li>Wallpapers</li>
-                <li>Photography</li>
-                <li>Music</li>
-            </ul>
-            <u><b>Misc.</b></u><span class="nsfw">(NSFW)</span>
-            <ul>
-                <li>Random</li>
-                <li>ROBOT9001</li>
-            </ul>
+          <u><b>Interests</b></u>
+          <ul>
+              <li><a href="public/co.php">Comics & Cartoons</a></li>
+              <li><a href="public/g.php">Technology</a></li>
+          </ul>
         </div>
             <div style="clear: both"></div>
         </div>

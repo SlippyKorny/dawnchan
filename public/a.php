@@ -5,6 +5,7 @@
     <title>/a/ - Anime & Manga - Dawnchan</title>
     <link rel="shortcut icon" href="../assets/img/Favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/classic_theme.css">
+
     <script src="../js/createNewThread.js"></script>
     <script src="../js/getBoardId.js"></script>
     <board_id style="display: none">1</board_id>
