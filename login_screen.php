@@ -16,6 +16,7 @@
         <h3>Username: </h3><input name="username">
         <h3>Password: </h3><input name="password" type="password"><br><br>
         <button>Log in</button><br><br>
+        <a href="public/registration.php">No account?</a>
     </form>
     <div style="clear: both"></div>
 </div>

@@ -5,6 +5,8 @@
     <title>/vp/ - Pokémon - Dawnchan</title>
     <link rel="shortcut icon" href="../assets/img/Favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/classic_theme.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/onFollowClick.js"></script>
     <script src="../js/createNewThread.js"></script>
     <script src="../js/getBoardId.js"></script>
     <board_id style="display: none">4</board_id>
@@ -36,9 +38,14 @@
 			</div>
         </div>
     <div id="misc">
+      <?php
+        session_start();
+        if ($_SESSION["username"] != NULL)
+          echo "[Logged in as: <a href='normal_user_panel.php'>" . $_SESSION["username"] . "</a>]";
+      ?>
         [Settings]
         [Search]
-        [<a href="../../index.php">Home</a>]
+        [<a href="../index.php">Home</a>]
     </div>
     <div style="clear: both"></div>
 </nav><br>

@@ -1,31 +1,30 @@
 <?php
-
-    ### TODO:
-    ### 1. The replies under a thread are actually ordered in ascending order - it should display the latest 5 replies
-    ### 2. Make a simple parser that will look for: ', or ` or any other special characters that you can think of. ATM they cause a bug
-    ### 3. Implement a way to display a single post - possible the best way to do that would be by using the get method and creating a single
-    ###     php file for every kind of thread that would display unique data depending on the given variables through the get method
-    ### 4. Re-write display_threads($board_no) as there is no reason for that function to have two queries. Use only one (the `posts` table one)
-
     ### Imports
     require_once "db_connect.php";
     require_once "get_board_name_by_id.php";
+    require_once "get_user_id.php";
+    require_once "follow_module.php";
 
     ### Declerations
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 
     function display_threads($board_no)
     {
-        //TODO: When you load a post without a picture set some default size of it and don't use an image at all
-        //TODO: After you implement all of the necessary stuff for adding and displaying threads add here the option of loading a picture with the path provided by the sql query
-        //TODO: Display only 5 last posts unless you go into the "reply"
+        session_start();
         global $conn;
         if(!$conn)
             die("display_threads() connection failure: " . mysqli_connect_error() . "<br>");
 
         $sql_query_threads = "SELECT * FROM `threads` WHERE board_id=" . $board_no . " ORDER BY thread_id DESC";
-
+        $follow_no = 0;
         $threads_query_result = mysqli_query($conn, $sql_query_threads);
+
+        $_sessions_user_id = FALSE;
+        if(isset($_SESSION["username"]))
+        {
+          $_sessions_username = $_SESSION["username"];
+          $_sessions_user_id = get_user_id_by_username($_sessions_username, $conn);
+        }
 
         if (mysqli_num_rows($threads_query_result) > 0)
         {
@@ -52,7 +51,17 @@
                 echo " <span class='thread-post-id'>No.{$posts_query_row['post_id']}</span>   <form style='display: inline-block' method='post' action='thread.php'>"
                             . "<input style='display: none' value='{$posts_query_row['board_id']}' name='board_id'><input style='display: none' name='board_description' value='" . get_board_name_by_id($conn, $threads_query_row["board_id"])
                                 . "'><input style='display: none' name='board_name' value='" . get_board_name_short_by_id($conn, $threads_query_row["board_id"]) . "'>[<span class='thread-reply'><input name= 'thread_id' value='{$threads_query_row['thread_id']}' style='display: none'><button>Reply</button></span>]</form>";
-                echo "<a href=''><img src='../assets/img/follow_0.png'></a><br>"; // TODO: make the function on click add it to the following
+
+                if($_sessions_user_id != FALSE)
+                {
+                  if(does_user_follow_thread($threads_query_row["thread_id"], $_sessions_user_id) == 1)
+                    echo "<img class='follow-eye' style='cursor: pointer;' src='../assets/img/follow_1.png' id='follow_{$follow_no}' thread_id='{$posts_query_row['thread_id']}'><br>";
+                  else
+                    echo "<img class='follow-eye' style='cursor: pointer;' src='../assets/img/follow_0.png' id='follow_{$follow_no}' thread_id='{$posts_query_row['thread_id']}'><br>";
+                }
+                else
+                  echo "<br>";
+                $follow_no++;
                 echo "<div class='thread-op-text'>" . nl2br($threads_query_row['thread_description'], false) . "</div><br>";
 
                 $counter = 0;
@@ -93,10 +102,10 @@
         }
         else
             die("display_threads() `threads` extraction failure: no threads found");
-  }
+    }
 
     function display_single_thread($thread_id)
-  {
+    {
       global $conn;
       $is_it_op = true;
 
@@ -195,8 +204,8 @@
         }
     }
 
-function display_threads_root($board_no)
-{
+    function display_threads_root($board_no)
+    {
     //TODO: When you load a post without a picture set some default size of it and don't use an image at all
     //TODO: After you implement all of the necessary stuff for adding and displaying threads add here the option of loading a picture with the path provided by the sql query
     //TODO: Display only 5 last posts unless you go into the "reply"

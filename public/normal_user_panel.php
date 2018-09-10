@@ -26,11 +26,26 @@
     <hr id="header-seperator">
 
     <h1>Followed threads:</h1>
+    <form action="../private/log_out.php">
+      <button>Log out</button>
+    </form>
     <?php
-      // require_once "../private/display_threads.php";
+      require_once "../private/display_threads.php";
+      require_once "../private/db_connect.php";
 
-      // display_threads(1);
 
+      $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+      $sql_followed_threads = "SELECT * FROM `followed_threads` WHERE user_id={$user_id}";
+      $followed_threads_results = mysqli_query($conn, $sql_query_threads);
+
+      if (mysqli_num_rows($followed_threads_results) > 0)
+      {
+          while($row_followed_threads = mysqli_fetch_assoc($followed_threads_results))
+          {
+            display_single_thread($row_followed_threads['thread_id']);
+          }
+      }
     ?><hr>
 
     <footer>

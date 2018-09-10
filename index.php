@@ -39,8 +39,8 @@
         </div>
 
     </div>
+    <div style="margin-top: 80px"></div>
 
-    <div style="margin-top: 300px"></div>
 
     <div id="recent-threads">
         <div class="my-header">Recent threads</div>
