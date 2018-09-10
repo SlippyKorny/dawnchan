@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav>
-        <div id="boards">
+    <div id="boards">
 		<h1>Boards</h1>
 			<div id="jap-culture">
 				<b>Japanese Culture</b>
@@ -34,7 +34,7 @@
 					<li><a href="g.php">Technology</a></li>
 				</ul>
 			</div>
-        </div>
+    </div>
         <div id="misc">
             [Settings]
             [Search]

@@ -11,7 +11,7 @@
 </head>
 <body>
 <nav>
-        <div id="boards">
+    <div id="boards">
 		<h1>Boards</h1>
 			<div id="jap-culture">
 				<b>Japanese Culture</b>
