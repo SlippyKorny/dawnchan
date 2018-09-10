@@ -11,9 +11,30 @@
 </head>
 <body>
 <nav>
-    <div id="boards">
-        [a / b / c / d / e / f / g / gif / h / hr / k / m / o / p / r / s / t / u / v / vg / vr / w / wg] [i / ic] [r9k / s4s / vip / qa] [cm / hm / lgbt / y] [3 / aco / adv / an / asp / bant / biz / cgl / ck / co / diy / fa / fit / gd / hc / his / int / jp / lit / mlp / mu / n / news / out / po / pol / qst / sci / soc / sp / tg / toy / trv / tv / vp / wsg / wsr / x]
-    </div>
+        <div id="boards">
+		<h1>Boards</h1>
+			<div id="jap-culture">
+				<b>Japanese Culture</b>
+				<ul>
+					<li><a href="a.php">Anime</a></li>
+					<li><a href="jp.php">Otaku culture</a></li>
+				</ul>
+			</div>
+			<div id="video-games">
+				<b>Video Games</b>
+				<ul>
+					<li><a href="v.php">Video Games</a></li>
+					<li><a href="vp.php">Pokémon</a></li>
+				</ul>
+			</div>
+			<div id="interests">
+				<b>Interests</b>
+				<ul>
+					<li><a href="co.php">Comics & Cartoons</a></li>
+					<li><a href="g.php">Technology</a></li>
+				</ul>
+			</div>
+        </div>
     <div id="misc">
         [Settings]
         [Search]
