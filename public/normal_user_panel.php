@@ -10,10 +10,44 @@
     <!-- <board_id style="display: none">1</board_id> -->
 </head>
 <body>
-    <nav>
-        <h1>Put nav from kwasior over here!</h1>
-        <div style="clear: both"></div>
-    </nav><br>
+  <nav>
+  <div id="boards">
+  <h1>Boards</h1>
+    <div id="jap-culture">
+      <b>Japanese Culture</b>
+      <ul>
+        <li><a href="a.php">Anime</a></li>
+        <li><a href="jp.php">Otaku culture</a></li>
+      </ul>
+    </div>
+    <div id="video-games">
+      <b>Video Games</b>
+      <ul>
+        <li><a href="v.php">Video Games</a></li>
+        <li><a href="vp.php">Pokémon</a></li>
+      </ul>
+    </div>
+    <div id="interests">
+      <b>Interests</b>
+      <ul>
+        <li><a href="co.php">Comics & Cartoons</a></li>
+        <li><a href="g.php">Technology</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="misc">
+    <?php
+      session_start();
+      if ($_SESSION["username"] != NULL)
+        echo "[Logged in as: <a href=''>" . $_SESSION["username"] . "</a>]";
+    ?>
+      [Settings]
+      [Search]
+      [<a href="../private/log_out.php">Log out</a>]
+      [<a href="../index.php">Home</a>]
+  </div>
+      <div style="clear: both"></div>
+  </nav><br>
     <?php
         $banner_number = rand(1, 3);
         $img_tag = "<img src=\"../assets/img/Banners/" . $banner_number . ".jpg\" id=\"banner\">";
@@ -26,23 +60,26 @@
     <hr id="header-seperator">
 
     <h1>Followed threads:</h1>
-    <form action="../private/log_out.php">
-      <button>Log out</button>
-    </form>
     <?php
       require_once "../private/display_threads.php";
       require_once "../private/db_connect.php";
-
+      require_once "../private/get_user_id.php";
 
       $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-      $sql_followed_threads = "SELECT * FROM `followed_threads` WHERE user_id={$user_id}";
+      if(!$conn)
+        die("normal_user_panel was not able to connect to the database");
+
+      $user_id = get_user_id_by_username($_SESSION["username"], $conn);
+
+      $sql_followed_threads = "SELECT * FROM `followed_threads` WHERE `followed_threads`.`user_id`='{$user_id}'";
       $followed_threads_results = mysqli_query($conn, $sql_query_threads);
 
       if (mysqli_num_rows($followed_threads_results) > 0)
       {
           while($row_followed_threads = mysqli_fetch_assoc($followed_threads_results))
           {
+            echo "Test";
             display_single_thread($row_followed_threads['thread_id']);
           }
       }

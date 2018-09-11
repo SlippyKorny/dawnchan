@@ -1,6 +1,11 @@
 <!doctype HTML>
 <html lang="en">
 <head>
+    <?php
+      session_start();
+      if(isset($_SESSION['username']))
+        header("Location: public/normal_user_panel.php");
+    ?>
     <meta charset="utf-8">
     <title>Dawnchan administration panel</title>
 

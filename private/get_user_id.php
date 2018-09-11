@@ -11,7 +11,7 @@ function get_user_id_by_username($username, $conn)
 
   $query_result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($query_result) == 0)
-    die("get_user_id_by_username() Error: user called '" . $username . "' not found");
+    die("get_user_id_by_username() Error: user called '" . $username . "' was not found in the database");
   $row = mysqli_fetch_assoc($query_result);
   // mysqli_close($conn);
   return $row["user_id"];
