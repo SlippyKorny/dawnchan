@@ -1,6 +1,5 @@
 <?php
     ### Imports
-    require_once "db_connect.php";
     require_once "get_board_name_by_id.php";
     require_once "get_user_id.php";
     require_once "follow_module.php";
@@ -278,7 +277,7 @@
       }
       else
           die("display_threads() `threads` extraction failure: no threads found");
-}
+    }
 
   ### Calls
   # Calls should be inside of the importing file (e.g. a.php)

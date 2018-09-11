@@ -1,3 +1,3 @@
 function setUpThread() {
-    document.getElementsByTagName('title').innerHTML =
+    document.getElementsByTagName('title').innerHTML = "";
 }
